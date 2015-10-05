@@ -30,6 +30,7 @@ exports.createServer = function (onRequest) {
 
     socket.on('close', function () {
       debug('socket connection closed')
+      server.emit('disconnect')
     })
 
     var decoder = new rtsp.Decoder()
